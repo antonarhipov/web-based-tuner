@@ -1,3 +1,21 @@
+# Made with JetBrains Junie
+
+## Prompt 1
+
+"I want to create a web based tuner application with nice visual effects. suggest step by step execution plan for this project. write the plan to docs/plan.md file"
+
+## Prompt 2
+
+Create a task list to implement this this plan. write task list to docs/tasks.md file
+
+## Prompt 3
+
+Start implementing the application. Follow the task list and mark the tasks as done [x] upone completion
+
+---------
+
+**The result is this repository :)**
+
 # Web-Based Tuner Application
 
 A web-based musical instrument tuner application with engaging visual effects.
