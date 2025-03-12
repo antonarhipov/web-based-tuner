@@ -4,7 +4,7 @@
  */
 
 // Import dependencies
-import { setupVisualization } from './visualization.js';
+import { setupVisualization, changeVisualization, setAnalyzer } from './visualization.js';
 import { detectPitch } from './pitch-detection.js';
 import { noteFromFrequency } from './note-recognition.js';
 
@@ -26,18 +26,26 @@ const meterIndicator = document.querySelector('.meter-indicator');
 const referenceFreqInput = document.getElementById('reference-freq');
 const instrumentSelect = document.getElementById('instrument');
 const visualizationContainer = document.querySelector('.visualization-container');
+const visualizationSelect = document.getElementById('visualization-type');
 
 // Initialize the application
 function init() {
     // Set up event listeners
     startButton.addEventListener('click', toggleListening);
     referenceFreqInput.addEventListener('change', updateReferenceFrequency);
-    
+    visualizationSelect.addEventListener('change', updateVisualization);
+
     // Create visualization canvas
     setupVisualization(visualizationContainer);
-    
+
     // Display initial state
     updateDisplay(null, null, null);
+}
+
+// Update visualization type
+function updateVisualization() {
+    const visualizationType = visualizationSelect.value;
+    changeVisualization(visualizationType);
 }
 
 // Toggle microphone listening
@@ -62,20 +70,23 @@ async function startListening() {
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
-    
+
     // Get microphone access
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    
+
     // Create microphone source
     microphone = audioContext.createMediaStreamSource(stream);
-    
+
     // Create analyzer node
     analyzer = audioContext.createAnalyser();
     analyzer.fftSize = 2048;
-    
+
     // Connect microphone to analyzer
     microphone.connect(analyzer);
-    
+
+    // Set analyzer for visualization
+    setAnalyzer(analyzer);
+
     // Start processing audio
     isListening = true;
     processAudio();
@@ -87,12 +98,12 @@ function stopListening() {
         microphone.disconnect();
         microphone = null;
     }
-    
+
     if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
         animationFrameId = null;
     }
-    
+
     isListening = false;
     updateDisplay(null, null, null);
 }
@@ -102,21 +113,21 @@ function processAudio() {
     // Create buffer for frequency data
     const bufferLength = analyzer.frequencyBinCount;
     const dataArray = new Float32Array(bufferLength);
-    
+
     // Get time domain data
     analyzer.getFloatTimeDomainData(dataArray);
-    
+
     // Detect pitch
     const frequency = detectPitch(dataArray, audioContext.sampleRate);
-    
+
     if (frequency !== -1) {
         // Get note information
         const { note, octave, cents } = noteFromFrequency(frequency, referenceFrequency);
-        
+
         // Update display
         updateDisplay(note, octave, frequency, cents);
     }
-    
+
     // Continue processing in animation frame
     animationFrameId = requestAnimationFrame(processAudio);
 }
@@ -133,11 +144,11 @@ function updateDisplay(note, octave, frequency, cents = 0) {
         octaveElement.textContent = octave;
         frequencyDisplay.textContent = `${frequency.toFixed(2)} Hz`;
         centsDeviationElement.textContent = `${cents.toFixed(0)} cents`;
-        
+
         // Update meter position based on cents deviation
         const position = 50 + (cents / 50) * 50; // Convert cents to percentage (±50 cents = ±50%)
         meterIndicator.style.left = `${Math.max(0, Math.min(100, position))}%`;
-        
+
         // Change color based on tuning accuracy
         if (Math.abs(cents) < 5) {
             meterIndicator.style.backgroundColor = 'var(--success-color)';

@@ -95,8 +95,8 @@ This document contains the actionable tasks derived from the project plan. Check
 - [ ] Implement audio-reactive particle system
 - [x] Create 3D visualizations using WebGL (if selected)
 - [ ] Implement smooth transitions between visual states
-- [ ] Create and implement multiple visual themes
-- [ ] Add theme selection in settings
+- [x] Create and implement multiple visual themes
+- [x] Add theme selection in settings
 
 ## 5. Performance Optimization
 

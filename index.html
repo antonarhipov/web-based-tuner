@@ -12,14 +12,14 @@
         <header>
             <h1>Web Tuner</h1>
         </header>
-        
+
         <main>
             <div class="tuner-container">
                 <div class="note-display">
                     <div class="note-name">--</div>
                     <div class="octave">-</div>
                 </div>
-                
+
                 <div class="tuning-meter">
                     <div class="meter-scale">
                         <div class="meter-indicator"></div>
@@ -27,14 +27,14 @@
                     </div>
                     <div class="cents-deviation">0 cents</div>
                 </div>
-                
+
                 <div class="frequency-display">0 Hz</div>
             </div>
-            
+
             <div class="visualization-container">
                 <!-- Canvas for visualizations will be inserted here by JavaScript -->
             </div>
-            
+
             <div class="controls">
                 <button id="start-btn" class="primary-btn">Start Tuner</button>
                 <div class="settings-container">
@@ -51,14 +51,22 @@
                         <option value="piano">Piano</option>
                     </select>
                 </div>
+                <div class="visualization-selector">
+                    <label for="visualization-type">Visualization:</label>
+                    <select id="visualization-type">
+                        <option value="waveform">Waveform</option>
+                        <option value="spectrum">Spectrum</option>
+                        <option value="circular">Circular</option>
+                    </select>
+                </div>
             </div>
         </main>
-        
+
         <footer>
             <p>© 2023 Web Tuner. Use your device's microphone for best results.</p>
         </footer>
     </div>
-    
+
     <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
