@@ -6,6 +6,9 @@ A web-based musical instrument tuner application with engaging visual effects.
 
 This application allows musicians to tune their instruments using their device's microphone. It provides real-time pitch detection, note recognition, and visual feedback to help achieve accurate tuning.
 
+![](img/tuner.png)
+
+
 ## Features
 
 - Real-time pitch detection
