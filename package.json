@@ -1,0 +1,27 @@
+{
+  "name": "web-tuner",
+  "version": "0.1.0",
+  "description": "A web-based musical instrument tuner application with engaging visual effects",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "tuner",
+    "music",
+    "web-audio",
+    "pitch-detection"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "p5": "^1.6.0"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9",
+    "vitest": "^0.32.2"
+  }
+}

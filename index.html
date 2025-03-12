@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tuner</title>
+    <meta name="description" content="A web-based musical instrument tuner with visual effects">
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Web Tuner</h1>
+        </header>
+        
+        <main>
+            <div class="tuner-container">
+                <div class="note-display">
+                    <div class="note-name">--</div>
+                    <div class="octave">-</div>
+                </div>
+                
+                <div class="tuning-meter">
+                    <div class="meter-scale">
+                        <div class="meter-indicator"></div>
+                        <div class="meter-center-mark"></div>
+                    </div>
+                    <div class="cents-deviation">0 cents</div>
+                </div>
+                
+                <div class="frequency-display">0 Hz</div>
+            </div>
+            
+            <div class="visualization-container">
+                <!-- Canvas for visualizations will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="controls">
+                <button id="start-btn" class="primary-btn">Start Tuner</button>
+                <div class="settings-container">
+                    <label for="reference-freq">A4 Reference (Hz):</label>
+                    <input type="number" id="reference-freq" value="440" min="420" max="460" step="1">
+                </div>
+                <div class="instrument-selector">
+                    <label for="instrument">Instrument:</label>
+                    <select id="instrument">
+                        <option value="guitar">Guitar</option>
+                        <option value="bass">Bass</option>
+                        <option value="violin">Violin</option>
+                        <option value="ukulele">Ukulele</option>
+                        <option value="piano">Piano</option>
+                    </select>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2023 Web Tuner. Use your device's microphone for best results.</p>
+        </footer>
+    </div>
+    
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

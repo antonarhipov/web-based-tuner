@@ -1,0 +1,225 @@
+/* Base Styles */
+:root {
+    --primary-color: #4a6eb5;
+    --secondary-color: #6c8ecc;
+    --accent-color: #ff7b25;
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Tuner Styles */
+.tuner-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.note-display {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 20px;
+}
+
+.note-name {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.octave {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-left: 5px;
+}
+
+.tuning-meter {
+    margin: 30px 0;
+}
+
+.meter-scale {
+    height: 40px;
+    background-color: #eee;
+    border-radius: 20px;
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.meter-indicator {
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: left var(--transition-speed) ease-out;
+}
+
+.meter-center-mark {
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background-color: var(--success-color);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cents-deviation {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.frequency-display {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-top: 20px;
+}
+
+/* Visualization Styles */
+.visualization-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Controls Styles */
+.controls {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.settings-container, .instrument-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    min-width: 150px;
+}
+
+input, select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .note-name {
+        font-size: 4rem;
+    }
+    
+    .octave {
+        font-size: 1.5rem;
+    }
+    
+    .meter-scale {
+        width: 100%;
+    }
+    
+    .settings-container, .instrument-selector {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    label {
+        min-width: auto;
+    }
+}
