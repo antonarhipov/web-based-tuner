@@ -91,8 +91,8 @@ This document contains the actionable tasks derived from the project plan. Check
 - [ ] Test visual feedback with musicians
 
 ### 4.3 Advanced Visual Effects
-- [ ] Design particle system that responds to audio input
-- [ ] Implement audio-reactive particle system
+- [x] Design particle system that responds to audio input
+- [x] Implement audio-reactive particle system
 - [x] Create 3D visualizations using WebGL (if selected)
 - [ ] Implement smooth transitions between visual states
 - [x] Create and implement multiple visual themes

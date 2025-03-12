@@ -20,9 +20,10 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--background-color);
+    background-color: transparent;
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .app-container {
@@ -32,6 +33,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 header {
@@ -54,11 +57,12 @@ main {
 
 /* Tuner Styles */
 .tuner-container {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
     padding: 30px;
     box-shadow: var(--box-shadow);
     text-align: center;
+    position: relative;
 }
 
 .note-display {
@@ -129,11 +133,14 @@ main {
 
 /* Visualization Styles */
 .visualization-container {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 20px;
-    box-shadow: var(--box-shadow);
-    height: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background-color: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,13 +148,14 @@ main {
 
 /* Controls Styles */
 .controls {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
     padding: 20px;
     box-shadow: var(--box-shadow);
     display: flex;
     flex-direction: column;
     gap: 20px;
+    position: relative;
 }
 
 .primary-btn {
@@ -190,6 +198,9 @@ footer {
     padding: 20px 0;
     color: #777;
     font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: var(--border-radius);
+    position: relative;
 }
 
 /* Responsive Styles */
@@ -197,28 +208,28 @@ footer {
     .app-container {
         padding: 10px;
     }
-    
+
     h1 {
         font-size: 2rem;
     }
-    
+
     .note-name {
         font-size: 4rem;
     }
-    
+
     .octave {
         font-size: 1.5rem;
     }
-    
+
     .meter-scale {
         width: 100%;
     }
-    
+
     .settings-container, .instrument-selector {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     label {
         min-width: auto;
     }

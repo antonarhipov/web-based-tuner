@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
+    <div class="visualization-container">
+        <!-- Canvas for visualizations will be inserted here by JavaScript -->
+    </div>
+
     <div class="app-container">
         <header>
             <h1>Web Tuner</h1>
@@ -31,10 +35,6 @@
                 <div class="frequency-display">0 Hz</div>
             </div>
 
-            <div class="visualization-container">
-                <!-- Canvas for visualizations will be inserted here by JavaScript -->
-            </div>
-
             <div class="controls">
                 <button id="start-btn" class="primary-btn">Start Tuner</button>
                 <div class="settings-container">
@@ -56,7 +56,7 @@
                     <select id="visualization-type">
                         <option value="waveform">Waveform</option>
                         <option value="spectrum">Spectrum</option>
-                        <option value="circular">Circular</option>
+                        <option value="particles">Particles</option>
                     </select>
                 </div>
             </div>
