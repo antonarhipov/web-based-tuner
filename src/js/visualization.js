@@ -175,7 +175,7 @@ class Particle {
         this.position = p.createVector(p.random(p.width), p.random(p.height));
         this.velocity = p.createVector(p.random(-1, 1), p.random(-1, 1));
         this.acceleration = p.createVector(0, 0);
-        this.size = p.random(3, 8);
+        this.size = p.random(9, 24);
         this.color = {
             h: p.random(360),
             s: 80,
@@ -218,7 +218,7 @@ class Particle {
         this.lifespan -= 1;
 
         // Update size based on audio
-        this.size = this.p.map(audioValue, 0, 255, 3, 12) * this.audioResponsiveness;
+        this.size = this.p.map(audioValue, 0, 255, 9, 36) * this.audioResponsiveness;
     }
 
     // Check if particle is still alive
